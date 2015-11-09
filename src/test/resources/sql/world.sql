@@ -44,6 +44,7 @@ delete from member
  where id = 5;
  
  
+ 
 
 
 
