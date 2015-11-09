@@ -42,6 +42,8 @@ update member
 -- Delete
 delete from member
  where id = 5;
+ 
+ 
 
 
 
