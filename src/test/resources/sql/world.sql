@@ -9,7 +9,7 @@ select count(*) from country;
 
 --
 -- Member Table
---
+-- DDL(Data Definition Language)
 drop table member;
 
 create table member (
@@ -23,7 +23,7 @@ create table member (
 
 -- 
 -- Member CRUD (Create, Read, Update, Delete)
---
+-- DML(Data Manipulation Language)
 -- Create
 insert into member
 (email, name, password, register_date)
