@@ -36,7 +36,8 @@ public class CityTransfer {
 			public void accept(City t) {
 				System.out.print(".");
 				System.out.flush();
-				oracleCityMapper.insert(t);
+				int rtn = oracleCityMapper.insert(t);
+				log.info("rtn = " + rtn);
 			}
 		});
 		
