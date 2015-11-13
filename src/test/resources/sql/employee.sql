@@ -104,6 +104,8 @@ select d.deptno as dept_deptno,
 	   e.job	as emp_job
   from dept d left outer join emp e 
     on d.deptno = e.deptno
+    
+    
 
 
 
