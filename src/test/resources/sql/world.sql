@@ -64,7 +64,25 @@ select id,
   from city
  where countrycode = 'USA' 
   
-  
+--
+-- Country
+--
+
+select * from city
+
+select * from country where code = 'KOR'
+
+select ci.id,
+	   ci.countrycode,
+	   ci.name,
+	   co.code,
+	   co.name, 
+	   co.headofstate
+  from city ci inner join country co 
+    on ci.countrycode = co.code
+ where co.code = 'USA'   
+
+
  
  
  
