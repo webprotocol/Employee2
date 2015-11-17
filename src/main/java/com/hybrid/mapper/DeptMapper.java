@@ -14,4 +14,5 @@ public interface DeptMapper {
 	
 	int insert(Dept dept);
 	
+	
 }
