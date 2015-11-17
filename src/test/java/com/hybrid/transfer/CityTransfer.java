@@ -1,5 +1,6 @@
 package com.hybrid.transfer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -42,6 +43,9 @@ public class CityTransfer {
 		});
 		
 		ctx.close();
+		
+		List<String> xx;
+		
 
 	}
 
