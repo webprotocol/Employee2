@@ -38,4 +38,12 @@ public class DeptDao {
 		
 		return mapper.selectByDeptnoWithEmps(deptno);
 	}
+	
+	public int insert(Dept dept) {
+		return mapper.insert(dept);
+	}
+	
+	
+	
+	
 }

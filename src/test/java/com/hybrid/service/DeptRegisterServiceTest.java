@@ -18,7 +18,12 @@ public class DeptRegisterServiceTest {
 		
 		DeptRegisterService service = ctx.getBean(DeptRegisterService.class);
 		
-		service.regist(null);
+		Dept dept = new Dept();
+		dept.setDeptno(60);
+		dept.setDname("총무부");
+		dept.setLoc("seoul");
+		
+		service.regist(dept);
 		
 	}
 
