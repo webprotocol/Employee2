@@ -4,6 +4,12 @@ select * from dept;
 
 select * from emp;
 
+select *
+  from dept d inner join emp e
+    on d.deptno = e.deptno
+ where d.deptno = 81  
+
+
 --
 -- Member Table
 -- DDL(Data Definition Language)
@@ -106,7 +112,7 @@ select d.deptno as dept_deptno,
     on d.deptno = e.deptno
     
     
-    
+delete from dept where deptno = 61    
 
 
 
