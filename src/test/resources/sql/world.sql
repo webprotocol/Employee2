@@ -82,7 +82,16 @@ select ci.id,
     on ci.countrycode = co.code
  where co.code = 'USA'   
 
-
+select id,
+	   name,
+	   countrycode,
+	   district,
+	   population
+  from city
+ order by countrycode asc, name asc
+ limit 40, 10
+ -- start, length
+ -- from 0
  
  
  
