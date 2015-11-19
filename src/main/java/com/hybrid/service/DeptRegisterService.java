@@ -35,27 +35,13 @@ public class DeptRegisterService {
 		
 	public void regist(Dept dept) {
 		
-		DataSourceTransactionManager transactionManager=null;
-		transactionManager = new DataSourceTransactionManager();
-		transactionManager.setDataSource(dataSource);
+		deptDao.insert(dept);
 		
-		TransactionDefinition td = new DefaultTransactionDefinition();
-		TransactionStatus ts = transactionManager.getTransaction(td);
-		
-		try {
-			deptDao.insert(dept);
-			
-			List<Emp> emps = dept.getEmps();
+		List<Emp> emps = dept.getEmps();
 
-			if (emps != null)
-			for (Emp e : emps) {
-				empDao.insert(e);
-			}
-			
-			transactionManager.commit(ts);
-		} catch (RuntimeException ex) {
-			ex.printStackTrace();
-			transactionManager.rollback(ts);	
+		if (emps != null)
+		for (Emp e : emps) {
+			empDao.insert(e);
 		}
 		
 	}

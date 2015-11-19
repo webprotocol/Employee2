@@ -15,11 +15,16 @@ public class LogDaoAspect {
 //	static Log log = LogFactory.getLog(LogDaoAspect.class);
 	
 	@Pointcut("execution(public * com.hybrid.dao.*Dao.*(..))")
-	public void logcut() {
+	public void dao() {
 		
 	}
 	
-	@Before("logcut()")
+	@Pointcut("execution(public * com.hybrid.service.*Service.*(..))")
+	public void service() {
+		
+	}
+	
+	@Before("dao() || service()")
 	public void before(JoinPoint jp) {
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
 		log.info("### " + jp.getSignature().getName()
@@ -29,7 +34,7 @@ public class LogDaoAspect {
 						+ " START");
 	}
 	
-	@After("logcut()")
+	@After("dao() || service()")
 	public void after(JoinPoint jp) {
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
 		log.info("### " + jp.getSignature().getName()
