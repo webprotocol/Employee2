@@ -20,24 +20,24 @@ public class MemberMapperSpringTest {
 	static Log log = LogFactory.getLog(MemberMapperSpringTest.class);
 	
 	public static void main(String[] args) throws SQLException {
-//		test1();
+		test1();
 //		test2();
 		
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("spring/beans_dao.xml");
-		
-		MemberMapper memberMapper = ctx.getBean(MemberMapper.class);
-		
-		List<Member> list = memberMapper.selectAll();
-		
-		list.forEach(new Consumer<Member>() {
-
-			@Override
-			public void accept(Member t) {
-				log.info("email = " + t.getEmail());
-				
-			}
-			
-		});
+//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("spring/beans_dao.xml");
+//		
+//		MemberMapper memberMapper = ctx.getBean(MemberMapper.class);
+//		
+//		List<Member> list = memberMapper.selectAll();
+//		
+//		list.forEach(new Consumer<Member>() {
+//
+//			@Override
+//			public void accept(Member t) {
+//				log.info("email = " + t.getEmail());
+//				
+//			}
+//			
+//		});
 		
 		
 	}

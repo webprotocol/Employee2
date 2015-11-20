@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.hybrid.dao.DeptDao;
@@ -32,7 +33,8 @@ public class DeptRegisterService {
 	public void setDataSource(DataSource ds) {
 		this.dataSource = ds;
 	}
-		
+	
+	@Transactional
 	public void regist(Dept dept) {
 		
 		deptDao.insert(dept);
