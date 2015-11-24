@@ -36,8 +36,23 @@
 		}
 	}
 	
-
 </style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('li > a').click(function() {
+		
+		$('ul > li').removeClass('active');
+		
+		var str = $(this).text();
+		$('#result').text(str);
+		
+		$(this).parent().addClass('active');
+		
+	});
+});
+
+</script>
 </head>
 <body>
 <h1 class="title_animation">Employee</h1>
@@ -56,6 +71,8 @@
 	<li><a href="#">10</a></li>
 	<li><a href="#">Next</a></li>
 </ul>
+<div id="result"></div>
+
 
 </body>
 </html>
