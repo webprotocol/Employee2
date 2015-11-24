@@ -1,0 +1,15 @@
+#
+# javascript Framework
+#
+Cross-Brower 대응
+
+1. jQuery ==> jQuery Mobile
+
+2. Extjs  ==> Sencha Touch
+
+3. Angularjs ==> MVC Framework
+
+4. Bootstrap ==> RWD(반응형 웹)
+
+
+
