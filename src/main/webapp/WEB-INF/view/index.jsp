@@ -10,14 +10,7 @@
 <meta charset="UTF-8">
 <title>index.jsp</title>
 
-<c:url var="bootstrap" value="/bootstrap/dist/css/bootstrap.css"/>
-<c:url var="jquery" value="/jquery/dist/jquery.js"/>
-<c:url var="angular" value="/angular/angular.js"/>
-
-<link rel="stylesheet" href="${bootstrap}"/>
-<script type="text/javascript" src="${jquery}"></script>
-<script type="text/javascript" src="${angular}"></script>
-
+<%@ include file="/WEB-INF/view/common.jspf" %>
 
 <style type="text/css">
 

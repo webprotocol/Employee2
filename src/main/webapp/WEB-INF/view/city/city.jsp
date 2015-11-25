@@ -11,9 +11,22 @@
 
 <%@ include file="/WEB-INF/view/common.jspf" %>
 
-<title>template.jsp</title>
+<title>city.jsp</title>
 </head>
 <body>
+<h1>City List</h1>
 
+<button class="btn btn-primary">GET</button>
+
+<textarea id="result" rows="50" cols="50"></textarea>
+
+<script type="text/javascript">
+	$.getJSON('/Employee/city', function(response) {
+		console.dir(response);
+		var json = JSON.stringify(response, null, 4);
+		$('#result').text(json);
+	});
+
+</script>
 </body>
 </html>
