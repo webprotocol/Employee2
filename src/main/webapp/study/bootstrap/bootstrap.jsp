@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-12">
 			<img alt="xxx" src="http://www.placehold.it/100x100/00ffff/0000ff?text=100%">
 		</div>
 	</div>
