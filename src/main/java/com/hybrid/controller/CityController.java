@@ -36,6 +36,21 @@ public class CityController {
 		return "city/main"; // /WEB-INF/view/city/main.jsp
 	}
 	
+	@RequestMapping("/list.html")
+	public String getListView() {
+		log.info("getListView()...");
+		
+		return "city/list"; // /WEB-INF/view/city/list.jsp
+	}
+	
+	@RequestMapping("/detail.html")
+	public String getDetailView() {
+		log.info("getDetailView()...");
+		
+		return "city/detail"; // /WEB-INF/view/city/detail.jsp
+	}
+	
+	
 	@RequestMapping(value={"", "/"})
 	@ResponseBody
 	public CityList getCityAll() {

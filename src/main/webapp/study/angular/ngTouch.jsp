@@ -87,12 +87,12 @@
 	<hr>
 	<img data-ng-swipe-left="imgSwipeLeft($event)"
 		 data-ng-swipe-right="imgSwipeRight($event)"
-		 draggable="false" class="img-responsive" alt="{{imgURL}}" src="{{imgURL}}">
+		 ondragstart="return false"
+		 draggable="false" class="img-responsive" alt="{{imgURL}}" data-ng-src="{{imgURL}}">
 		 
 	<p>{{imgmsg}}</p>
 	<hr>
 	<img alt="" src="">
-	
 	
 </body>
 </html>
