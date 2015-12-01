@@ -39,18 +39,21 @@
 		$scope.selectPage();
 		
 		$scope.prevClick = function(pageNo) {
+			console.log("prevClick()... pageNo = " + pageNo);
 			$scope.pageNo = pageNo
 			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
 		};
 		
 		$scope.pageClick = function(pageNo) {
+			console.log("pageClick()... pageNo = " + pageNo);
 			$scope.pageNo = pageNo
 			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
 		};
 		
 		$scope.nextClick = function(pageNo) {
+			console.log("nextClick()... pageNo = " + pageNo);
 			$scope.pageNo = pageNo
 			$scope.selectPage();
 // 			alert("pageNo=" + pageNo);
@@ -70,8 +73,8 @@
 	<div class="table-responsive">
 		<ul class="pagination">
 			<li><a href="#" data-ng-click="prevClick(paging.firstPage - 1)">Prev</a></li>
-			<li data-ng-repeat="">
-			
+			<li data-ng-repeat="city in citys">
+				<a href="#" data-ng-click="pageClick(paging.firstPage + $index)">{{paging.firstPage + $index}}</a>
 			</li>
 			<li><a href="#" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
 		</ul>

@@ -18,28 +18,22 @@ import com.hybrid.service.CityListService;
 import com.hybrid.service.CityPageService;
 import com.hybrid.util.Pagination;
 
-//@Controller
+@Controller
 @RequestMapping("/city")
 public class CityController {
 	static Log log = LogFactory.getLog(CityController.class);
 
+	@Autowired	// 필드 주입
 	CityListService cityListService;
 	
+	@Autowired
 	CityPageService cityPageService;
 	
-	public void setCityListService(CityListService service) {
-		this.cityListService = service;
-	}
-	public void setCityPageService(CityPageService service) {
-		this.cityPageService = service;
-	}
-	
-	
-	@RequestMapping("/city.html")
-	public String getView() {
-		log.info("getView()...");
+	@RequestMapping("/main.html")
+	public String getMainView() {
+		log.info("getMainView()...");
 		
-		return "city/city"; // /WEB-INF/view/city/city.jsp
+		return "city/main"; // /WEB-INF/view/city/main.jsp
 	}
 	
 	@RequestMapping(value={"", "/"})
