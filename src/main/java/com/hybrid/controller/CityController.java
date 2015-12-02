@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -126,6 +127,17 @@ public class CityController {
 		CityPage page = cityPageService.getPage(pageNo);
 		
 		return page;
+	}
+	/*
+	 * 	URL_POST_ITEM_APPEND = [/city] or [/city/]
+	 *  Accept = application/json
+	 */
+	@RequestMapping(value={"", "/"}, method=RequestMethod.POST)
+	@ResponseBody
+	public City postCityAppend(@RequestBody City city) {
+		log.info("postCityAppend()... city.id = " + city.getId());
+		
+		return city;
 	}
 	
 	

@@ -26,15 +26,15 @@
 		$scope.data = "data";
 		$scope.error = "error";
 		
-		function successCallback(xxx) {
-			console.dir(xxx);
-			$scope.data = xxx.data;
+		function successCallback(response) {
+			console.dir(response);
+			$scope.data = response.data;
 			
 		}
 		
-		function errorCallback(xxx) {
-			console.dir(xxx);
-			$scope.error = xxx.data;
+		function errorCallback(response) {
+			console.dir(response);
+			$scope.error = response.data;
 		}
 		
 		
@@ -66,7 +66,12 @@
 				break;
 			case "DELETE":
 				alert("DELETE call...");
-				var ajax = $http.delete(url);
+				var config = {
+					method : "DELETE",
+					url : url
+				}
+				var ajax = $http(config);
+				
 				ajax.then(successCallback, errorCallback);
 				
 				break;									
