@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hybrid.model.City;
@@ -29,43 +30,98 @@ public class CityController {
 	@Autowired
 	CityPageService cityPageService;
 	
-	@RequestMapping("/main.html")
+	/*
+	 * main.html
+	 */
+	@RequestMapping(value="/main.html", method=RequestMethod.GET)
 	public String getMainView() {
 		log.info("getMainView()...");
 		
-		return "city/main"; // /WEB-INF/view/city/main.jsp
+		return "city/main";
 	}
-	
-	@RequestMapping("/list.html")
+	/*
+	 * list.html
+	 */
+	@RequestMapping(value="/list.html", method=RequestMethod.GET)
 	public String getListView() {
 		log.info("getListView()...");
 		
-		return "city/list"; // /WEB-INF/view/city/list.jsp
+		return "city/list";
 	}
-	
-	@RequestMapping("/detail.html")
+	/*
+	 * detail.html
+	 */
+	@RequestMapping(value="/detail.html", method=RequestMethod.GET)
 	public String getDetailView() {
 		log.info("getDetailView()...");
 		
-		return "city/detail"; // /WEB-INF/view/city/detail.jsp
+		return "city/detail"; 
 	}
-	
-	
-	@RequestMapping(value={"", "/"})
+	/*
+	 * append.html
+	 */
+	@RequestMapping(value="/append.html", method=RequestMethod.GET)
+	public String getAppendView() {
+		log.info("getAppendView()...");
+		
+		return "city/append"; 
+	}
+	/*
+	 * modify.html
+	 */
+	@RequestMapping(value="/modify.html", method=RequestMethod.GET)
+	public String getModifyView() {
+		log.info("getModifyView()...");
+		
+		return "city/modify"; 
+	}
+	/*
+	 * delete.html
+	 */
+	@RequestMapping(value="/delete.html", method=RequestMethod.GET)
+	public String getDeleteView() {
+		log.info("getDeleteView()...");
+		
+		return "city/delete"; 
+	}
+	/*
+	 *  URL_GET_LIST = [/city] or [/city/]
+	 *  Accept = application/json
+	 */
+	@RequestMapping(value={"", "/"}, method=RequestMethod.GET)
 	@ResponseBody
 	public CityList getCityAll() {
-
+		log.info("getCityAll()...");
+		
 		CityList list = cityListService.getList();
 		
 		return list;
 	}
 	
-//	@RequestMapping("/page/{pageNo:[\\-\\+]{0,1}[0-9]+}")
-	@RequestMapping("/page/{pageNo:[0-9]+}")
+	/*
+	 * URL_GET_ITEM_BASE = [/city/{id}]
+	 * Accept = application/json
+	 */
+	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.GET)
+	@ResponseBody
+	public City getCityItem(@PathVariable int id) {
+		log.info("getCityItem()... id=" + id);
+		
+		City city = new City();
+		city.setId(id);
+		city.setName("seoul");
+		
+		return city;
+	}
+	
+	/*
+	 *  URL_GET_PAGE_BASE = [/city/page/{pageNo}]
+	 *  Accept = application/json
+	 */	
+	@RequestMapping(value="/page/{pageNo:[0-9]+}", method=RequestMethod.GET)
 	@ResponseBody
 	public CityPage getCityPage(@PathVariable int pageNo) {
-	
-		log.info("pageNo = " + pageNo);
+		log.info("getCityPage()... pageNo = " + pageNo);
 		
 		CityPage page = cityPageService.getPage(pageNo);
 		
