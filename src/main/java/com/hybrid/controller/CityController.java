@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hybrid.command.CityCommand;
 import com.hybrid.model.City;
 import com.hybrid.model.CityList;
 import com.hybrid.model.CityPage;
@@ -134,8 +135,33 @@ public class CityController {
 	 */
 	@RequestMapping(value={"", "/"}, method=RequestMethod.POST)
 	@ResponseBody
-	public City postCityAppend(@RequestBody City city) {
-		log.info("postCityAppend()... city.id = " + city.getId());
+	public CityCommand postCityAppend(@RequestBody CityCommand city) {
+		log.info("postCityAppend()... city id = " + city.getId());
+		
+		return city;
+	}
+	/*
+	 * 	URL_PUT_ITEM_MODIFY = [/city/{id}]
+	 *  Accept = application/json
+	 */
+	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.PUT)
+	@ResponseBody
+	public CityCommand putCityModify(@PathVariable int id, @RequestBody CityCommand city) {
+		log.info("putCityModify()... id = " + id);
+		log.info("putCityModify()... city id = " + city.getId());
+		
+		return city;
+	}
+	/*
+	 * 	URL_DELETE_ITEM_DELETE = [/city/{id}]
+	 *  Accept = application/json
+	 */
+	@RequestMapping(value="/{id:[0-9]+}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public CityCommand deleteCity(@PathVariable int id) {
+		log.info("deleteCity()... id = " + id);
+		CityCommand city = new CityCommand();
+		city.setId(id);
 		
 		return city;
 	}
