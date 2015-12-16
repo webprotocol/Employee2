@@ -43,7 +43,8 @@
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar'
+	            'angular-loading-bar',
+	            'ui.bootstrap'
 	           ];
 
 	var app = angular.module("employeeApp", deps);
