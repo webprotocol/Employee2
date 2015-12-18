@@ -53,7 +53,7 @@ public class CityCommand {
 	
 	public City getCity() {
 		City c = new City();
-//		c.setId(id);
+		c.setId(id);
 		c.setName(name);
 		c.setCountryCode(countryCode);
 		c.setDistrict(district);

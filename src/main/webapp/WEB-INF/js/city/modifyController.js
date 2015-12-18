@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
 	
 });
 
-app.controller('modifyController', function($scope, $http, URL, $routeParams) {
+app.controller('modifyController', function($scope, $http, URL, $routeParams, $location) {
 	console.log("modifyController...");
 	console.log("URL.PUT_ITEM_MODIFY_BASE = " + URL.PUT_ITEM_MODIFY_BASE);
 	console.log("URL.GET_ITEM_BASE = " + URL.GET_ITEM_BASE);
@@ -20,14 +20,37 @@ app.controller('modifyController', function($scope, $http, URL, $routeParams) {
 
 	$scope.$parent.title = "MODIFY City View";
 	
-	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id);
+	var ajax = $http.get(URL.GET_ITEM_BASE + $routeParams.id); // /city/2000
 	ajax.then(function(value) {
 		console.dir(value);
-		$scope.cityForm = value.data;
+		$scope.city = value.data;
 	}, function(reason) {
 		console.dir(reasone);
 		alert("error...");
 	});
+	
+	$scope.submit = function() {
+		var ajax = $http.put(URL.PUT_ITEM_MODIFY_BASE + $scope.city.id, {
+			id 			: $scope.city.id,
+			name 		: $scope.city.name,
+			countryCode : $scope.city.countryCode,
+			district 	: $scope.city.district,
+			population 	: $scope.city.population
+		});
+		
+		ajax.then(function(response) {
+			console.dir(response.data);
+			$location.path("/list");
+		}, function(response) {
+			console.dir(response.data);
+		});
+		
+		
+		
+	};
+	
+	
+	
 	
 	
 });

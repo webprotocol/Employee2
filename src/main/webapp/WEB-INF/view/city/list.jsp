@@ -19,18 +19,19 @@
 		<li><a href="" data-ng-click="prevClick(paging.lastPage + 1)">Next</a></li>
 	</ul>
 	
-	<uib-pagination total-items="paging.totalItem" 
-					ng-model="pageNo"
-					max-size="10"
-					ng-change="selectPage()"
-					boundary-links="true"
-					>
-	</uib-pagination>
-	
-	
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr><td><a href="#/append" class="btn btn-primary">Append</a></td></tr>
+			<tr><th colspan="8">
+				<div data-uib-pagination 
+					 data-total-items="paging.totalItem" style="width:800px;" 
+					 data-ng-model="pageNo"
+					 data-max-size="10"
+					 data-ng-change="selectPage()"
+					 data-boundary-links="true">
+				</div>
+				</th>
+			</tr>
 			<tr>
 				<th>No</th>
 				<th>ID</th>
