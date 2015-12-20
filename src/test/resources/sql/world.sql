@@ -14,9 +14,9 @@ drop table member;
 
 create table member (
 	id				int auto_increment,
-	email			varchar(255),
+	email			varchar(255) not null,
 	name			varchar(255),
-	password 		varchar(255),
+	password 		varchar(255) not null,
 	register_date	date,
 	constraint pk_id primary key (id)
 );
@@ -26,9 +26,9 @@ create table member (
 -- DML(Data Manipulation Language)
 -- Create
 insert into member
-(email, name, password, register_date)
+(email, name, password)
 values
-('xxx@yyy', '홍길동', '1234', '2015/11/11')
+('hsseo@hybrid.com', '홍길동', '1234')
 
 -- Read
 select * from member;
